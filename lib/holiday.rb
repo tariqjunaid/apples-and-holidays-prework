@@ -3,7 +3,7 @@ def second_supply_for_fourth_of_july(holiday_hash)
 end
 
 def add_supply_to_winter_holidays(holiday_hash, supply)
-  holiday_hash[:winter].each { |season, holiday|  holiday << supply }
+  holiday_hash[:winter].each { |key, value|  value << supply }
 end
 
 
@@ -16,23 +16,23 @@ def add_new_holiday_with_supplies(holiday_hash, season, holiday_name, supply_arr
 end
 
 def all_winter_holiday_supplies(holiday_hash)
-  holiday_hash[:winter].collect { |holiday, supply|  supply }.flatten
+  holiday_hash[:winter].collect { |key, value|  value }.flatten
 end
 
 def all_supplies_in_holidays(holiday_hash)
-  holiday_hash.each do |season, holiday|
-    puts "#{season.capitalize}:"
-    holiday.each do |holiday, supply|
-      puts "  #{holiday.to_s.split("_").map { |w| w.capitalize }.join(" ")}: #{supply.join(", ")}"
+  holiday_hash.each do |key, value|
+    puts "#{key.capitalize}:"
+    value.each do |key, value|
+      puts "  #{key.to_s.split("_").map { |w| w.capitalize }.join(" ")}: #{value.join(", ")}"
     end
   end
 end
 
 def all_holidays_with_bbq(holiday_hash)
-  holiday_hash.map do |season, holiday|
-  holiday.map do |holiday, supply|
-    if supply.include?("BBQ")
-      holiday
+  holiday_hash.map do |key, value|
+  value.map do |key, value|
+    if value.include?("BBQ")
+      key
     end
   end
 end.flatten.compact
