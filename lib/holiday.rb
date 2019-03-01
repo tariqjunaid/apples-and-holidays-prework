@@ -3,7 +3,7 @@ def second_supply_for_fourth_of_july(holiday_hash)
 end
 
 def add_supply_to_winter_holidays(holiday_hash, supply)
-  holiday_hash[:winter].each { |key, value| value << supply }
+  holiday_hash[:winter].each { |k, v| v << supply }
 end
 
 
@@ -16,7 +16,7 @@ def add_new_holiday_with_supplies(holiday_hash, season, holiday_name, supply_arr
 end
 
 def all_winter_holiday_supplies(holiday_hash)
-  holiday_hash[:winter].collect { |key, value| value }.flatten
+  holiday_hash[:winter].collect { |k, v| v }.flatten
 end
 
 def all_supplies_in_holidays(holiday_hash)
